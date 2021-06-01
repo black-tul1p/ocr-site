@@ -3,5 +3,6 @@
 /Uploads/*.jpeg
 /Uploads/*.png
 
+# Ignores MacOS image cache file
 /*/.DS_Store
 .DS_Store
