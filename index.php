@@ -25,15 +25,8 @@
 				<form id="upload">
 					<input type="text" value="" id="image-url" placeholder="Enter URL to image..." style="margin: 5px; width: 8.5vw;">
 					<input type="button" id="btn" class="click-button" value="SELECT" onclick="loadLink();">
-
-					<!-- <font style="opacity: 35%; font-size: 0.55em; font-family: sans-serif; font-weight: bold;"> OR&nbsp; </font> -->
 					<br><p class="bg-text">OR</p>
 
-				<!-- 
-					<input type="file" id="uploaded-img" hidden="hidden">
-					<button type="button" id="click-button" class="click-button">CHOOSE A FILE</button>
-					<span id="upload-text">No file selected.</span><br>
- 				-->
 				</form>
 				<!-- Image upload button -->
 				<form action="upload.php" method='POST' enctype="multipart/form-data">
