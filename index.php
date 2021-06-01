@@ -4,14 +4,14 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Digit Identifier</title>
+		<title>Digit Recognizer</title>
 	</head>
-	<body style="background-image: url('./Images/background-small.png');">
+	<body>
 		<!-- Title -->
 		<header>
 			<div class="main-title teal-bg"><br><center>
 				<!-- <img src="./Images/logo.png" alt="Digit OCR logo"> -->
-				Digit Recognizer
+				<a href="./">Digit Recognizer</a>
 			</center><br></div>
 		</header>
 
@@ -43,7 +43,7 @@
 				<!-- Analyze image button -->
 				<form action="run-ocr.php" method="POST">
 					<br>
-					<input type="submit" id="run-button" value="IDENTIFY!" onclick="loadImage();">
+					<input type="submit" id="run-button" value="IDENTIFY!">
 					<br><br>
 				</form>
 			</div>
