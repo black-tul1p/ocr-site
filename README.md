@@ -2,14 +2,13 @@
 
 Personal site that uses Logistic Regression to identify a digit in an image.
 
-# Screenshots
+# Main Page
 
-Here is the main page:
 ![black-tul1p](/Screenshots/Homepage.png)
 
 # Usage
 
-### There are two ways of using it:
+### There are two ways of selecting images:
 
 1.
 	Entering a link to an image of a digit:
