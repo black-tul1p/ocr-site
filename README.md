@@ -1,3 +1,7 @@
 # OCR Site
 
-Personal site that uses the Logistic Regression algorithm to identify a digit in a user-uploaded image
+Personal site that uses Logistic Regression to identify a digit in an image.
+
+# Screenshots
+
+![black-tul1p]()
