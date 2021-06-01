@@ -1,4 +1,5 @@
 <?php
+// Check if image upload is being requested
 if (isset($_POST['submit'])) {
 	// Get file info
 	$file = $_FILES['file'];
@@ -69,11 +70,9 @@ if (isset($_POST['submit'])) {
 
 						<!-- Form for URL submission and refresh button -->
 						<div class="info-card" style="flex-basis: 40em; flex-grow: 1; flex-shrink: 1;" id="image-holder"><br>';
-
 	if ($uploaded) {
 		echo "<img src='$fileDest' id='up-img' style='max-width: 28vw; max-height: 40vh;' alt='Uploaded image'><br>";
 	}
-
 	echo'
 		<!-- URL upload form -->
 		<form id="upload">
@@ -97,16 +96,12 @@ if (isset($_POST['submit'])) {
 		<!-- Analyze image button -->
 		<form action="run-ocr.php" method="POST">
 	';
-
 	if ($uploaded) {
 		echo "	<input type='hidden' value='$fileDest' id='image-path' name='image-path'>";
 	}
-
-	// Main site source code
 	echo '	<br>
 			<input type="submit" id="run-button" value="IDENTIFY!" onclick="loadImage();">
 		</form>';
-
 	if ($uploaded) {
 		echo "<p class='bg-text'>Image uploaded successfully.</p>";
 	} elseif ($large) {
@@ -118,7 +113,6 @@ if (isset($_POST['submit'])) {
 	} elseif ($formatError) {
 		echo "<p class='bg-text'>Please upload a png, jpg or jpeg image.</p>";
 	}
-
 	echo '<br></div>
 			<!-- Script for loading image -->
 				<div>

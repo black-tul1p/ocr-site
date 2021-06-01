@@ -49,6 +49,7 @@ echo '<!DOCTYPE html>
 						</form>
 ';
 
+// Check for field with location data and run ML script
 if (isset($_POST['image-path'])) {
 	// Variable to hold path to image
 	$fileDest = $_POST['image-path'];
@@ -59,6 +60,7 @@ if (isset($_POST['image-path'])) {
 } else {
 	echo "<p class='bg-text'>No image was uploaded</p>";
 }
+
 // Main site source code
 echo '<br></div>
 		<!-- Script for loading image -->
