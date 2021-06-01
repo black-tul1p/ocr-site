@@ -29,10 +29,6 @@ if (isset($_POST['submit'])) {
 				$fileDest = './Uploads/'.$fileNameFinal;
 				if (move_uploaded_file($fileTmpName, $fileDest)) {
 					$uploaded = true;
-					// header("Location: index.php?uploadsuccess");
-					// echo "<br><br>";
-					// echo "<p class='bg-text'>Image uploaded successfully.</p>";
-					// echo "	<input type='hidden' value='$fileDest' id='image-path' name='image-path'>";
 				}
 			} else {
 				$large = true;
