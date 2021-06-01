@@ -1,11 +1,14 @@
+from PIL import Image
 from torchvision import torch
 import cv2
 
-def convert_bnw(in_path):
-	bnw_image = cv2.imread(in_path, cv2.IMREAD_GRAYSCALE)
-	return bnw_image
+def convert_bnw(in_path, out_path):
+	rgb_image = Image.open(in_path)
+	bnw_image = rgb_image.convert('L')
+	bnw_image.save(out_path)
 
-def resize_img(input_im):
+def resize_img(img_path):
+	input_im = cv2.imread(img_path)
 	input_im = cv2.resize(input_im, (28, 28))
 	return input_im
 
