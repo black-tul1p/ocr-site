@@ -1,0 +1,4 @@
+# ignores cached images in Uploads/ folder
+/Uploads/*.jpg
+/Uploads/*.jpeg
+/Uploads/*.png
