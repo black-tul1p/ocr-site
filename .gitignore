@@ -2,3 +2,6 @@
 /Uploads/*.jpg
 /Uploads/*.jpeg
 /Uploads/*.png
+
+/*/.DS_Store
+.DS_Store
