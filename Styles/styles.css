@@ -1,11 +1,11 @@
 
 	body {
-		background-image: url('./Resources/background-small.png');
+		background-image: url('../Images/background-small.png');
 		opacity: 100%;
 	}
 
 	a {
-		color: #000000;
+		color: #FFF;
 		text-decoration: none;
 	}
 
