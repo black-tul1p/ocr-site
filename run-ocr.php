@@ -1,4 +1,19 @@
-<?php
+<?php	
+// Check for field with location data and run ML script
+$imageExists = false;
+$fileDest = "";
+
+if (isset($_POST['image-path'])) {
+	$imageExists = true;
+
+	// Variable to hold path to image
+	$fileDest = $_POST['image-path'];
+}
+
+//
+// Update Source Code
+//
+	
 // Main site source code
 echo '<!DOCTYPE html>
 		<link rel="stylesheet" type="text/css" href="./Styles/styles.css" />
@@ -22,13 +37,20 @@ echo '<!DOCTYPE html>
 
 					<!-- Form for URL submission and refresh button -->
 					<div class="info-card" style="flex-basis: 40em; flex-grow: 1; flex-shrink: 1;" id="image-holder"><br>
+';
 
-						<!-- URL upload form -->
-						<form id="upload">
-							<input type="text" value="" id="image-url" placeholder="Enter URL to image..." style="margin: 5px; width: 8.5vw;">
-							<input type="button" id="btn" class="click-button" value="SELECT" onclick="loadLink();">
+if ($imageExists) {
+	echo "<img src='$fileDest' id='up-img' style='max-width: 28vw; max-height: 40vh;' alt='Uploaded image'><br id='loaded-br'>";
+}
+
+echo '					<!-- URL upload form -->
+						<form action="download.php" id="upload" method="POST">
+							<input type="text" name="image-url" value="" id="image-url" placeholder="Enter URL to image..." style="margin: 5px; width: 8.5vw;">
+							<button type="submit" name="submit-link" id="btn" class="click-button">SELECT</button>
 						</form>
-						
+
+						<p class="bg-text">OR</p>
+
 						<!-- Image upload button -->
 						<form action="upload.php" method="POST" enctype="multipart/form-data">
 							<input type="file" name="file" style="width: 180px"><button type="submit" name="submit">UPLOAD</button>
@@ -41,51 +63,15 @@ echo '<!DOCTYPE html>
 						</form>
 ';
 
-// Check for field with location data and run ML script
-if (isset($_POST['image-path'])) {
-	// Variable to hold path to image
-	$fileDest = $_POST['image-path'];
-
+if ($imageExists) {
 	// Running the ML script on the image
 	echo "<p>".shell_exec("python ./OCR/digit_detect.py ".$fileDest)."</p>";
-
 } else {
 	echo "<p class='bg-text'>No image was uploaded</p>";
 }
 
 // Main site source code
-echo '<br></div>
-		<!-- Script for loading image -->
-			<div>
-				<script type="text/javascript">
-					// Displays image from link
-					var parentElement = document.getElementById("image-holder");
-					var firstChild = parentElement.childNodes[0];
-
-					function loadLink() {
-						var old_img = document.getElementById("loaded-link");
-						var line_br = document.getElementById("loaded-br");
-						if (old_img != null && line_br != null) {
-							old_img.parentNode.removeChild(old_img)
-							line_br.parentNode.removeChild(line_br)
-						}
-
-						var val = document.getElementById("image-url").value,
-						src = val,
-
-						img = document.createElement("img");
-						img.id = "loaded-link";
-						img.src = src;
-						img.style.width = "20em";
-						img.alt = "Image loaded from URL";
-
-						line_break = document.createElement("br");
-						line_break.id = "loaded-br"
-						parentElement.insertBefore(line_break, firstChild);
-						parentElement.insertBefore(img, firstChild);
-					};
-				</script>
-			</div>
+echo '<br>
 	</body>
 </html>';
 ?>
