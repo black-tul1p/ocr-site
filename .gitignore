@@ -6,3 +6,9 @@
 # Ignores MacOS image cache file
 /*/.DS_Store
 .DS_Store
+
+# Ignores OCR generated cache
+/OCR/__pycache__
+/OCR/bnw_images/*.jpg
+/OCR/bnw_images/*.jpeg
+/OCR/bnw_images/*.png
