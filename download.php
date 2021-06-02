@@ -3,6 +3,7 @@
 if (isset($_POST['image-url'])) {
 	$uploaded = false;
 	$noUrl = true;
+	$notImage = false;
 
 	// Get fileUrl
 	$fileUrl = $_POST['image-url'];
@@ -10,16 +11,21 @@ if (isset($_POST['image-url'])) {
 	// Get file extension
 	$fileExt = explode('.', $fileUrl);
 	$fileActualExt = strtolower(end($fileExt));
-
-	// Save file to Uploads/ folder
-	$fileName = uniqid('', true).".".$fileActualExt;
-	$fileDest = './Uploads/'.$fileName;
-	if (strcmp($fileUrl, "") != 0) {
-		$noUrl = false;
-		$remoteImage = file_get_contents($fileUrl);
-		if (file_put_contents($fileDest, $remoteImage) > 0) {
-			$uploaded = true;
+	$allowed = array('jpg', 'jpeg', 'png');
+	if (in_array($fileActualExt, $allowed)) {
+		// Save file to Uploads/ folder
+		$fileName = uniqid('', true).".".$fileActualExt;
+		$fileDest = './Uploads/'.$fileName;
+		if (strcmp($fileUrl, "") != 0) {
+			$noUrl = false;
+			$remoteImage = file_get_contents($fileUrl);
+			if (file_put_contents($fileDest, $remoteImage) > 0) {
+				$uploaded = true;
+			}
 		}
+	} else {
+		$noUrl = false;
+		$notImage = true;
 	}
 	
 	//
@@ -79,8 +85,10 @@ if (isset($_POST['image-url'])) {
 		echo "<p class='bg-text'>Image loaded successfully</p>";
 	} elseif ($noUrl) {
 		echo "<p class='bg-text'>No URL was entered</p>";
+	} elseif ($notImage) {
+		echo "<p class='bg-text'>URL does not link to an image</p>";
 	} else {
-		echo "<p class 'bg-text'>Image could not be loaded</p>";
+		echo "<p class='bg-text'>Image could not be loaded</p>";
 	}
 	echo '<br>
 		</body>
