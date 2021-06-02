@@ -18,6 +18,7 @@
 		margin: auto;
 		max-width: 52vw;
 		border-radius: 15px;
+		box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
 	}
 
 	.main-title {
