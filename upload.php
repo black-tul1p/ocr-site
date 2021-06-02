@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
 	echo'
 		<!-- URL upload form -->
 		<form action="download.php" id="upload" method="POST">
-			<input type="text" name="image-url" value="" id="image-url" placeholder="Enter URL to image..." style="margin: 5px; width: 8.5vw;">
+			<input type="text" class="url-bar" name="image-url" value="" id="image-url" placeholder="Enter URL to image...">
 			<button type="submit" name="submit-link" id="btn" class="click-button">SELECT</button>
 		</form>
 

@@ -2,6 +2,7 @@
 // Retrieve image from URL
 if (isset($_POST['image-url'])) {
 	$uploaded = false;
+	$noUrl = true;
 
 	// Get fileUrl
 	$fileUrl = $_POST['image-url'];
@@ -13,9 +14,12 @@ if (isset($_POST['image-url'])) {
 	// Save file to Uploads/ folder
 	$fileName = uniqid('', true).".".$fileActualExt;
 	$fileDest = './Uploads/'.$fileName;
-	$remoteImage = file_get_contents($fileUrl);
-	if (file_put_contents($fileDest, $remoteImage) > 0) {
-		$uploaded = true;
+	if (strcmp($fileUrl, "") != 0) {
+		$noUrl = false;
+		$remoteImage = file_get_contents($fileUrl);
+		if (file_put_contents($fileDest, $remoteImage) > 0) {
+			$uploaded = true;
+		}
 	}
 	
 	//
@@ -51,7 +55,7 @@ if (isset($_POST['image-url'])) {
 	echo'
 		<!-- URL upload form -->
 		<form action="download.php" id="upload" method="POST">
-			<input type="text" name="image-url" value="" id="image-url" placeholder="Enter URL to image..." style="margin: 5px; width: 8.5vw;">
+			<input type="text" class="url-bar" name="image-url" value="" id="image-url" placeholder="Enter URL to image...">
 			<button type="submit" name="submit-link" id="btn" class="click-button">SELECT</button>
 		</form>
 
@@ -73,6 +77,8 @@ if (isset($_POST['image-url'])) {
 		</form>';
 	if ($uploaded) {
 		echo "<p class='bg-text'>Image loaded successfully</p>";
+	} elseif ($noUrl) {
+		echo "<p class='bg-text'>No URL was entered</p>";
 	} else {
 		echo "<p class 'bg-text'>Image could not be loaded</p>";
 	}

@@ -45,7 +45,7 @@ if ($imageExists) {
 
 echo '					<!-- URL upload form -->
 						<form action="download.php" id="upload" method="POST">
-							<input type="text" name="image-url" value="" id="image-url" placeholder="Enter URL to image..." style="margin: 5px; width: 8.5vw;">
+							<input type="text" class="url-bar" name="image-url" value="" id="image-url" placeholder="Enter URL to image...">
 							<button type="submit" name="submit-link" id="btn" class="click-button">SELECT</button>
 						</form>
 
@@ -67,7 +67,7 @@ if ($imageExists) {
 	// Running the ML script on the image
 	echo "<p>".shell_exec("python ./OCR/digit_detect.py ".$fileDest)."</p>";
 } else {
-	echo "<p class='bg-text'>No image was uploaded</p>";
+	echo "<p class='bg-text'>No image was selected</p>";
 }
 
 // Main site source code
