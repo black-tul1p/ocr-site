@@ -39,7 +39,7 @@ if (isset($_POST['image-url'])) {
 						</div>
 					</header>
 
-					<br><br><br><br><br>
+					<br>
 
 					<!-- Flexbox -->
 

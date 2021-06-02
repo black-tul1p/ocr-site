@@ -31,7 +31,7 @@ echo '<!DOCTYPE html>
 					</div>
 				</header>
 
-				<br><br><br><br><br>
+				<br>
 
 				<!-- Flexbox -->
 
