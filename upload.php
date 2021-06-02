@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
 						<!-- Form for URL submission and refresh button -->
 						<div class="info-card" style="flex-basis: 40em; flex-grow: 1; flex-shrink: 1;" id="image-holder"><br>';
 	if ($uploaded) {
-		echo "<img src='$fileDest' id='up-img' style='max-width: 28vw; max-height: 40vh;' alt='Uploaded image'><br id='loaded-br'>";
+		echo "<img class='image' src='$fileDest' id='up-img' style='max-width: 28vw; max-height: 40vh;' alt='Uploaded image'><br id='loaded-br'>";
 	}
 	echo'
 		<!-- URL upload form -->

@@ -40,7 +40,7 @@ echo '<!DOCTYPE html>
 ';
 
 if ($imageExists) {
-	echo "<img src='$fileDest' id='up-img' style='max-width: 28vw; max-height: 40vh;' alt='Uploaded image'><br id='loaded-br'>";
+	echo "<img class='image' src='$fileDest' id='up-img' style='max-width: 28vw; max-height: 40vh;' alt='Uploaded image'><br id='loaded-br'>";
 }
 
 echo '					<!-- URL upload form -->
