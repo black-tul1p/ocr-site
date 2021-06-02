@@ -12,20 +12,19 @@ if (isset($_POST['image-url'])) {
 	$fileExt = explode('.', $fileUrl);
 	$fileActualExt = strtolower(end($fileExt));
 	$allowed = array('jpg', 'jpeg', 'png');
-	if (in_array($fileActualExt, $allowed)) {
-		// Save file to Uploads/ folder
-		$fileName = uniqid('', true).".".$fileActualExt;
-		$fileDest = './Uploads/'.$fileName;
-		if (strcmp($fileUrl, "") != 0) {
-			$noUrl = false;
+	if (strcmp($fileUrl, "") != 0) {
+		$noUrl = false;
+		if (in_array($fileActualExt, $allowed)) {
+			// Save file to Uploads/ folder
+			$fileName = uniqid('', true).".".$fileActualExt;
+			$fileDest = './Uploads/'.$fileName;
 			$remoteImage = file_get_contents($fileUrl);
 			if (file_put_contents($fileDest, $remoteImage) > 0) {
 				$uploaded = true;
 			}
+		} else {
+			$notImage = true;
 		}
-	} else {
-		$noUrl = false;
-		$notImage = true;
 	}
 	
 	//
